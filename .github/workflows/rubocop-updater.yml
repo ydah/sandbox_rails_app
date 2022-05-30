@@ -2,9 +2,31 @@ name: rubocop-updater
 
 on:
   workflow_dispatch:
+    inputs:
+      update_target:
+        type: choice
+        description: Name of the RuboCop (or extension) to be updated
+        options:
+          - rubocop
+          - rubocop-performance
+          - rubocop-rspec
+          - rubocop-rails
+        required: true
+      conservative:
+        type: boolean
+        description: Is conservative?
+        default: true
+        required: true
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - uses: ydah/rubocop-updater@main
+        with:
+          github_token: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
+          label: rubocop
+          update_target: ${{ github.event.inputs.update_target }}
+          exclude_limit: 999999
+          no-offense-counts: true
+          no-auto-gen-timestamp: true
