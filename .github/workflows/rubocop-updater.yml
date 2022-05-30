@@ -12,7 +12,7 @@ on:
           - rubocop-rspec
           - rubocop-rails
         required: true
-      conservative:
+      conservative_update:
         type: boolean
         description: Is conservative update?
         default: true
@@ -31,5 +31,5 @@ jobs:
           github_token: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
           label: rubocop
           update_target: ${{ github.event.inputs.update_target }}
-          bundler_options: ${BUNDLER_OPTIONS}
+          conservative_update: ${{ github.event.inputs.conservative_update }}
           rubocop_options: --exclude-limit=999999 --no-offense-counts --no-auto-gen-timestamp
