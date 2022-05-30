@@ -23,8 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Add Bundler options if its a conservative update
+        if: ${{ github.event.inputs.conservative }} == 'true'
         run: echo "BUNDLER_OPTIONS=--conservative" >> $GITHUB_ENV
-        if: ${{ github.event.inputs.conservative }}
         shell: bash
       - uses: ydah/rubocop-updater@main
         with:
