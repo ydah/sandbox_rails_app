@@ -12,9 +12,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'rubocop', '1.20.0'
-  gem 'rubocop-performance', '1.0.0'
-  gem 'rubocop-rails', '2.0.0'
-  gem 'rubocop-rspec', '1.5.0'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
 end
 
