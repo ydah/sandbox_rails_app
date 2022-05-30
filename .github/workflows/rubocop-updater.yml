@@ -1,0 +1,10 @@
+name: rubocop-updater
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ydah/rubocop-updater@main
