@@ -14,7 +14,7 @@ on:
         required: true
       conservative:
         type: boolean
-        description: Is conservative?
+        description: Is conservative update?
         default: true
         required: true
 
@@ -22,11 +22,14 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
+      - name: Add Bundler options if its a conservative update
+        run: echo "BUNDLER_OPTIONS=--conservative" >> $GITHUB_ENV
+        if: ${{ github.event.inputs.conservative }}
+        shell: bash
       - uses: ydah/rubocop-updater@main
         with:
           github_token: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
           label: rubocop
           update_target: ${{ github.event.inputs.update_target }}
-          exclude_limit: 999999
-          no-offense-counts: true
-          no-auto-gen-timestamp: true
+          bundler_options: ${BUNDLER_OPTIONS}
+          rubocop_options: --exclude-limit=999999 --no-offense-counts --no-auto-gen-timestamp
