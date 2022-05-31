@@ -26,7 +26,7 @@ jobs:
         with:
           github_token: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
           label: rubocop
-          bundler_version: 2.2.30
+          another_gemfile: Gemfile-another
           update_target: ${{ github.event.inputs.update_target }}
           conservative_update: ${{ github.event.inputs.conservative_update }}
           rubocop_options: --exclude-limit=999999 --no-offense-counts --no-auto-gen-timestamp
