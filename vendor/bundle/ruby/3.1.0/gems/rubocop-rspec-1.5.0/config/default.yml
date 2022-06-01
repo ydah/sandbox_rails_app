@@ -1,0 +1,61 @@
+RSpec/AnyInstance:
+  Description: 'Check that instances are not being stubbed globally'
+  Enabled: true
+
+RSpec/DescribeClass:
+  Description: 'Check that the first argument to the top level describe is the tested class or module.'
+  Enabled: true
+
+RSpec/DescribedClass:
+  Description: 'Use `described_class` for tested class / module'
+  Enabled: true
+
+RSpec/DescribeMethod:
+  Description: 'Checks that the second argument to top level describe is the tested method name.'
+  Enabled: true
+
+RSpec/ExampleWording:
+  Description: 'Do not use should when describing your tests.'
+  Enabled: true
+  CustomTransform:
+    be: is
+    have: has
+    not: does not
+  IgnoredWords: []
+
+
+RSpec/MultipleDescribes:
+  Description: 'Checks for multiple top level describes.'
+  Enabled: true
+
+RSpec/InstanceVariable:
+  Description: 'Checks for the usage of instance variables.'
+  Enabled: true
+
+RSpec/FilePath:
+  Description: 'Checks the file and folder naming of the spec file.'
+  Enabled: true
+  CustomTransform:
+    RuboCop: rubocop
+    RSpec: rspec
+
+RSpec/VerifiedDoubles:
+  Description: 'Prefer using verifying doubles over normal doubles.'
+  Enabled: true
+
+RSpec/NotToNot:
+  Description: 'Enforces the usage of the same method on all negative message expectations.'
+  EnforcedStyle: not_to
+  SupportedStyles:
+    - not_to
+    - to_not
+  Enabled: true
+
+RSpec/Focus:
+  Description: 'Checks if there are focused specs.'
+  Enabled: true
+
+RSpec/ExampleLength:
+  Description: 'Checks for long example'
+  Enabled: true
+  Max: 5
