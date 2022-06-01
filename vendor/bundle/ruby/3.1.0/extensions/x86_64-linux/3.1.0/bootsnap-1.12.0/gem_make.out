@@ -1,0 +1,15 @@
+current directory: /home/runner/work/sandbox_rails_app/sandbox_rails_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+/opt/hostedtoolcache/Ruby/3.1.0/x64/bin/ruby -I /opt/hostedtoolcache/Ruby/3.1.0/x64/lib/ruby/3.1.0 -r ./siteconf20220601-1687-1sbdio.rb extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/sandbox_rails_app/sandbox_rails_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/runner/work/sandbox_rails_app/sandbox_rails_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/runner/work/sandbox_rails_app/sandbox_rails_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.12.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220601-1687-w4g4mp/bootsnap
