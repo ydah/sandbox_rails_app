@@ -22,7 +22,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: ydah/rubocop-updater@main
+      - uses: ydah/rubocop-updater@v0
         with:
           github_token: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
           label: rubocop
