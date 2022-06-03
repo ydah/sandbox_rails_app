@@ -6,6 +6,7 @@ gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
+gem 'grpc'
 source "https://enterprise.contribsys.com/" do
   gem 'sidekiq-pro'
 end
