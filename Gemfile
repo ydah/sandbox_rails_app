@@ -11,7 +11,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
-group :development do
+group :rubocop do
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
