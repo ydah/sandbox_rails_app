@@ -94,7 +94,6 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
-    json (2.6.2)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -165,8 +164,7 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
-    rubocop (1.31.2)
-      json (~> 2.3)
+    rubocop (1.31.0)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -209,7 +207,7 @@ DEPENDENCIES
   grpc
   puma (~> 5.0)
   rails (~> 7.0.3)
-  rubocop
+  rubocop (= 1.31)
   rubocop-performance
   rubocop-rails
   rubocop-rspec
