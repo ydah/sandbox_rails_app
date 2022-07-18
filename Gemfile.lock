@@ -207,7 +207,7 @@ DEPENDENCIES
   grpc
   puma (~> 5.0)
   rails (~> 7.0.3)
-  rubocop (= 1.31)
+  rubocop
   rubocop-performance
   rubocop-rails
   rubocop-rspec
