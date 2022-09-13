@@ -1,32 +1,14 @@
-name: rubocop-updater
+name: rubocop-todo-regenerator
 
 on:
-  workflow_dispatch:
-    inputs:
-      update_target:
-        type: choice
-        description: Name of the RuboCop (or extension) to be updated
-        options:
-          - rubocop
-          - rubocop-performance
-          - rubocop-rspec
-          - rubocop-rails
-        required: true
-      conservative_update:
-        type: boolean
-        description: Is conservative update?
-        default: true
-        required: true
+  pull_request:
+    types: [labeled]
 
 jobs:
   run:
+    if: github.event.label.name == 'rubocop-todo-regenerate'
     runs-on: ubuntu-latest
     steps:
-      - uses: ydah/rubocop-updater@main
+      - uses: ydah/rubocop-todo-regenerator@main
         with:
           github_token: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
-          label: rubocop
-          another_gemfile: Gemfile-another
-          update_target: ${{ github.event.inputs.update_target }}
-          conservative_update: ${{ github.event.inputs.conservative_update }}
-          rubocop_options: --exclude-limit=999999 --no-offense-counts --no-auto-gen-timestamp
