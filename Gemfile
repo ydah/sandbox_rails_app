@@ -13,7 +13,7 @@ group :development, :test do
 end
 
 group :rubocop do
-  gem 'rubocop'
+  gem 'rubocop', 1.35
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
