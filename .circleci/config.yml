@@ -4,5 +4,5 @@ executors:
   bundle-install:
     parameters:
       cache_key:
-        default: gem-cache-v10
+        default: gem-cache-v11
         type: string
