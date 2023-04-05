@@ -33,4 +33,4 @@ jobs:
           gh pr create --title "Update the cache version and discard the broken cache for bundle on CircleCI" --body "${body}"
         shell: bash
     env:
-      GITHUB_TOKEN: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
