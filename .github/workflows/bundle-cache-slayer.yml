@@ -30,7 +30,7 @@ jobs:
           The bundle install in CircleCI on develop has failed due to a broken cache. Therefore, we will update the cache version and invalidate the broken cache.
           EOS
           )
-          gh pr create --title "Update the cache version and discard the broken cache for bundle on CircleCI" --body "${body}""
+          gh pr create --title "Update the cache version and discard the broken cache for bundle on CircleCI" --body "${body}"
         shell: bash
     env:
       GITHUB_TOKEN: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
