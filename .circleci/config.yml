@@ -1,0 +1,8 @@
+version: 2.1
+
+executors:
+  bundle-install:
+    parameters:
+      cache_key:
+        default: gem-cache-v10
+        type: string

@@ -1,0 +1,36 @@
+name: Bundle cache slayer 🤘
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bundle-cache-slayer:
+    name: Clear bundle cache
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: "${{ github.event.pull_request.base.ref }}"
+      - name: Setup git
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git switch --create bundle-cache-slayer-${{ github.run_number }}
+        shell: bash
+      - name: Clear cache
+        run: |
+          number=$(grep "gem-cache-v" .circleci/config.yml | awk -F'gem-cache-v' '{print $2}')
+          new_number=$((number+1))
+          sed -i "s/gem-cache-v[0-9]*/gem-cache-v$new_number/" .circleci/config.yml
+          git add -u
+          git commit -m "Clear bundle cache"
+          git push --set-upstream origin bundle-cache-slayer-${{ github.run_number }}
+          body=$(cat << EOS
+          ## Summary
+          The bundle install in CircleCI on develop has failed due to a broken cache. Therefore, we will update the cache version and invalidate the broken cache.
+          EOS
+          )
+          gh pr create --title "Update the cache version and discard the broken cache for bundle on CircleCI" --body "${body}""
+        shell: bash
+    env:
+      GITHUB_TOKEN: ${{ secrets.WRITABLE_GITHUB_TOKEN }}
